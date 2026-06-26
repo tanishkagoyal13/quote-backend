@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum QuoteStatus {
+  New
+  In_Review
+  Needs_Info
+  Completed
+}
+
+model QuoteRequest {
+  id               Int             @id @default(autoincrement())
+  customer_name    String
+  insurance_type   String
+  coverage_amount  Float
+  status           QuoteStatus     @default(New)
+  created_at       DateTime        @default(now())
+  updated_at       DateTime        @updatedAt
+
+  analysis         AnalysisResult?
+}
+
+model AnalysisResult {
+  id              Int          @id @default(autoincrement())
+  quote_id        Int          @unique
+  risk_level      String
+  missing_items   Json
+  confidence      Float
+  analyzed_at     DateTime     @default(now())
+
+  quote           QuoteRequest @relation(fields: [quote_id], references: [id])
+}
