@@ -1,0 +1,143 @@
+{
+  "info": {
+    "_postman_id": "0463aeb5-0c52-4657-9698-d54395c26ec3",
+    "name": "Quote Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46464483"
+  },
+  "item": [
+    {
+      "name": "Get All Quotes",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/quotes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "quotes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Quote",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"customer_name\": \"Tanishka\",\r\n  \"insurance_type\": \"Life\",\r\n  \"coverage_amount\": 750000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/quotes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "quotes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Quote by ID",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/quotes/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "quotes",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze Quote",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/quotes/3/analyze",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "quotes",
+            "3",
+            "analyze"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Quote Request",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\": \"In_Review\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/quotes/1/status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "quotes",
+            "1",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
